@@ -1,35 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using DataBankProj.DAL;
-using DataBankProj.DAL.Models;
+﻿using System.Web.Mvc;
+using DataBankProj.Extensibility;
 
 namespace DataBankProj.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IDataService dataService;
+
+        public HomeController(IDataService dataService)
+        {
+            this.dataService = dataService;
+        }
+
         public ActionResult Index()
         {
-            var db = new DataContext();
-         
-            var users = db.Users;
-            return View();
+            return View(new SelectList(dataService.GetListOfTypes()));
         }
 
-        public ActionResult About()
+        public ActionResult Edit(int id, string type)
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            return View(dataService.GetByIdAndType(id, type));
         }
 
-        public ActionResult Contact()
+        public ActionResult AddNewEntity(string type)
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return View(dataService.GetTypeByName(type));
         }
     }
 }

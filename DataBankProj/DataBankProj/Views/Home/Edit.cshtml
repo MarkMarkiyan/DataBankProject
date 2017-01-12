@@ -1,0 +1,30 @@
+﻿@Model object
+@{
+    ViewBag.Title = "Edit";
+}
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/MainPageScript.js"></script>
+
+<h2>Edit</h2>
+
+<table>
+    @foreach (var property in Model.GetType().GetProperties())
+    {
+        var isPropEdiable = @Model.GetType().GetProperty(property.Name).GetSetMethod(false);//.IsPublic;
+        <tr>
+            <td class="body-content">@property.Name</td>
+            <td>
+                @if (isPropEdiable!=null)
+                {
+                    <input class="input-sm" value=@Model.GetType().GetProperty(property.Name).GetValue(Model)>
+                }
+                else {
+                    <label>@Model.GetType().GetProperty(property.Name).GetValue(Model)</label>
+                }
+            </td>
+        </tr>
+    }
+</table>
+
+<button class="btn btn-info" id="saveButton">Save</button>

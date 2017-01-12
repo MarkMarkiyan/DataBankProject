@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
 using DataBankProj.DAL;
-using DataBankProj.DAL.Models;
 using DataBankProj.Extensibility;
+using DataBankProj.Models;
 
 namespace DataBankProj.Controllers
 {
@@ -10,15 +10,21 @@ namespace DataBankProj.Controllers
     {
         private IDataService dataService;
 
-        //public DataApiController(DataService dataService)
-        //{
-        //    this.dataService = dataService;
-        //}
-        [HttpGet]
-        public IEnumerable<object> Get()
+        public DataApiController()
         {
             dataService = new DataService(new UserRepository(), new BookRepository());
-            return dataService.GetDataByType(typeof(User));
+        }
+
+        [HttpGet]
+        public IEnumerable<object> GetDataByType(string type)
+        {
+            return dataService.GetDataByType(type);
+        }
+
+        [HttpPost]
+        public void SaveData([FromBody]DataInfo dataInfo)
+        {
+            dataService.InsertData(dataInfo.Data, dataInfo.Type);
         }
     }
 }

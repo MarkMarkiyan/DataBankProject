@@ -1,18 +1,15 @@
-﻿@{
+﻿@model SelectList
+@{
     ViewBag.Title = "Home Page";
 }
 <script src="~/Scripts/jquery-1.10.2.js"></script>
-
-<script src="~/Scripts/JavaScript1.js"></script>
+<script src="~/Scripts/MainPageScript.js"></script>
 <div class="table-responsive">
+    @Html.DropDownList("DataTypesDropDown", Model)
+
     <table id="mainTable" class="table table-striped">
         <tr id="titleRow">
-
         </tr>
     </table>
-    <button class="btn .btn-success">Save</button>
-</div>
-
-<div id="EditEntityForm">
-    lol
+    <button class="btn .btn-success" id="CreateNewEntityBtn">Add new</button>
 </div>

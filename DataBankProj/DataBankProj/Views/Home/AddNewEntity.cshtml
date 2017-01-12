@@ -1,0 +1,33 @@
+﻿@model Type
+
+@{
+    ViewBag.Title = "AddNewEntity";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AddNewEntity</h2>
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/AddNewEntityScript.js"></script>
+
+<table>
+    @foreach (var property in Model.GetProperties())
+    {
+        var isPropEdiable = @Model.GetProperty(property.Name).GetSetMethod(false);//.IsPublic;
+        <tr>
+            <td class="body-content">@property.Name</td>
+            <td>
+                @if (isPropEdiable != null)
+                {
+                    <input class="input-sm">
+                }
+                else
+                {
+                    <label>--</label>
+                }
+            </td>
+        </tr>
+    }
+</table>
+
+<button class="btn btn-info" id="saveButton">Save</button>

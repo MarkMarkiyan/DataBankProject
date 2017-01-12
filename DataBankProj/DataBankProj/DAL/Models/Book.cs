@@ -5,7 +5,7 @@ using System.Web;
 
 namespace DataBankProj.DAL.Models
 {
-    public class Book
+    public class Book: BaseEntity
     {
         public int Id { get; set; }
 
@@ -13,7 +13,7 @@ namespace DataBankProj.DAL.Models
 
         public string Description { get; set; }
 
-        public int size { get; set; }
+        public int Size { get; set; }
 
         public DateTime PublishDate { get; set; }
     }
