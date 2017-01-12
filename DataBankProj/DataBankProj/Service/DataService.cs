@@ -10,7 +10,7 @@ namespace DataBankProj.DAL
         private IRepository<User> userRepository;
         private IRepository<Book> bookRepository;
 
-        private Dictionary<string, IRepository<BaseEntity>> repositoryOfType;
+        private Dictionary<string, object> repositoryOfType;
 
         private List<string> dataTypesList = new List<string> {
             "User",
@@ -30,12 +30,12 @@ namespace DataBankProj.DAL
 
         public void InsertData(object obj, string type)
         {
-            (repositoryOfType[type]).Insert(obj);
+            (repositoryOfType[type] as IRepository<object>).Insert(obj);
         }
 
         public IEnumerable<object> GetDataByType(string type)
         {
-            return (repositoryOfType[type]).GetAll();
+            return (repositoryOfType[type] as IRepository<Book>).GetAll();
         }
 
         public object GetByIdAndType(int id, string type) {
@@ -59,10 +59,10 @@ namespace DataBankProj.DAL
         {
             if (repositoryOfType == null)
             {
-                repositoryOfType = new Dictionary<string, IRepository<BaseEntity>>();
+                repositoryOfType = new Dictionary<string, object>();
             }
-            repositoryOfType.Add("Book", userRepository);
-            repositoryOfType.Add("User", bookRepository);
+            repositoryOfType.Add("User", userRepository);
+            repositoryOfType.Add("Book", bookRepository);
         }
     }
 }

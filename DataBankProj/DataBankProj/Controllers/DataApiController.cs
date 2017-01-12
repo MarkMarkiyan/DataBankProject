@@ -10,9 +10,9 @@ namespace DataBankProj.Controllers
     {
         private IDataService dataService;
 
-        public DataApiController()
+        public DataApiController(IDataService dataService)
         {
-            dataService = new DataService(new UserRepository(), new BookRepository());
+            this.dataService = dataService;
         }
 
         [HttpGet]

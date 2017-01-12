@@ -6,7 +6,7 @@ namespace DataBankProj.DAL
 {
     public class DataContext : DbContext
     {
-        public DataContext() : base("DataContext")
+        public DataContext() : base("DataContext123")
         {
             Users.Add(new User
             {
