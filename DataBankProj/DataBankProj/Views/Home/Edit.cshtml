@@ -4,7 +4,7 @@
 }
 
 <script src="~/Scripts/jquery-1.10.2.js"></script>
-<script src="~/Scripts/MainPageScript.js"></script>
+<script src="~/Scripts/EditPageScript.js"></script>
 
 <h2>Edit</h2>
 
@@ -17,7 +17,7 @@
             <td>
                 @if (isPropEdiable!=null)
                 {
-                    <input class="input-sm" value=@Model.GetType().GetProperty(property.Name).GetValue(Model)>
+                    <input class="input-sm" id=@property.Name value=@Model.GetType().GetProperty(property.Name).GetValue(Model)>
                 }
                 else {
                     <label>@Model.GetType().GetProperty(property.Name).GetValue(Model)</label>

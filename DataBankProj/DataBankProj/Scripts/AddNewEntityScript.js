@@ -1,7 +1,14 @@
 ﻿$(document).ready(function () {
 
     $("#saveButton").click(function () {
-        window.location.href = "Home/AddNewEntity?type=" + currentDataType;
+        $.post("/api/DataApi/DeleteData",
+     {
+         name: "Donald Duck",
+         city: "Duckburg"
+     },
+     function (data, status) {
+         window.location.href = "Home/Index";
+     });
     });
 
 });

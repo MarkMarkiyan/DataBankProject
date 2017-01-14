@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DataBankProj.Extensibility
+namespace DataBankProj.Extensibility.Service
 {
     public interface IDataService
     {
         List<string> GetListOfTypes();
+
+        void DeleteDataByTypeAndId(string typeName, int id);
 
         void InsertData(object obj, string type);
 

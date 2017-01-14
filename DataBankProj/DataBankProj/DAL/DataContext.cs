@@ -6,7 +6,16 @@ namespace DataBankProj.DAL
 {
     public class DataContext : DbContext
     {
-        public DataContext() : base("DataContext123")
+        public DataContext() : base("DataContextttyyt")
+        {
+            
+        }
+
+        public DbSet<User> Users { get; set; }
+
+        public DbSet<Book> Books { get; set; }
+
+        public void InitData()
         {
             Users.Add(new User
             {
@@ -27,10 +36,11 @@ namespace DataBankProj.DAL
                 Login = "logisadn"
             });
 
-            Books.Add(new Book {
+            Books.Add(new Book
+            {
                 Id = 1,
                 Description = "qweqwe",
-                PublishDate = DateTime.Now,
+                PublishDate = "asd",
                 Title = "title1",
                 Size = 123
             });
@@ -38,7 +48,7 @@ namespace DataBankProj.DAL
             {
                 Id = 1,
                 Description = "Descr",
-                PublishDate = DateTime.Now,
+                PublishDate = "sdf",
                 Title = "title132",
                 Size = 3
             });
@@ -46,7 +56,7 @@ namespace DataBankProj.DAL
             {
                 Id = 1,
                 Description = "Kek",
-                PublishDate = DateTime.Now,
+                PublishDate = DateTime.Now.ToString(),
                 Title = "titE",
                 Size = 1233
             });
@@ -54,16 +64,12 @@ namespace DataBankProj.DAL
             {
                 Id = 1,
                 Description = "sdfsdfsdf",
-                PublishDate = DateTime.Now,
+                PublishDate = DateTime.Now.ToString(),
                 Title = "lesadasd1",
                 Size = 43
             });
 
             SaveChanges();
         }
-
-        public DbSet<User> Users { get; set; }
-
-        public DbSet<Book> Books { get; set; }
     }
 }

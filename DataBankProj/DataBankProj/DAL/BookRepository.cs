@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using DataBankProj.DAL.Models;
 using DataBankProj.Extensibility;
+using DataBankProj.Extensibility.DAL;
 
 namespace DataBankProj.DAL
 {
@@ -19,14 +21,17 @@ namespace DataBankProj.DAL
             return dataContext.Books.FirstOrDefault(u => u.Id == id);
         }
 
-        public void Delete(Book entity)
+        public void Delete(int  id)
         {
-            dataContext.Books.Remove(entity);
+            dataContext.Books.Remove(GetById(id));
+            dataContext.SaveChanges();
         }
 
         public Book Insert(Book entity)
         {
-            return dataContext.Books.Add(entity);
+            dataContext.Books.AddOrUpdate(entity);
+            dataContext.SaveChanges();
+            return entity;
         }
     }
 }

@@ -225,8 +225,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAL\BookRepository.cs" />
     <Compile Include="DAL\DataContext.cs" />
-    <Compile Include="DAL\Models\BaseEntity.cs" />
-    <Compile Include="Extensibility\DAL\IDataRepository.cs" />
     <Compile Include="Models\DataInfo.cs" />
     <Compile Include="Service\DataService.cs" />
     <Compile Include="DAL\Models\Book.cs" />
@@ -318,7 +316,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1303</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:1997/</IISUrl>
+          <IISUrl>http://localhost:1777/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

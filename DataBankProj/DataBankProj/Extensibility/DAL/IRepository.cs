@@ -1,14 +1,12 @@
-﻿using DataBankProj.DAL.Models;
-using DataBankProj.Extensibility.DAL;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace DataBankProj.Extensibility
+namespace DataBankProj.Extensibility.DAL
 {
-    public interface IRepository<T>/* where T : BaseEntity*/
+    public interface IRepository<T>
     {
         IEnumerable<T> GetAll();
         T GetById(int id);
-        void Delete(T entity);
+        void Delete(int entityId);
         T Insert(T entity);
     }
 }

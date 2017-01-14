@@ -6,14 +6,14 @@
         window.location.href = "Home/AddNewEntity?type=" + currentDataType;
     });
 
-    function getDataList(type) {
+    function getDataList() {
         FillDataTable();
     };
 
     document.getElementById('DataTypesDropDown').onchange = function (dropDown) {
         var selectedValue = dropDown.currentTarget.value;
         currentDataType = selectedValue;
-        getDataList(selectedValue);
+        getDataList();
     };
 
     function FillDataTable() {
@@ -45,28 +45,46 @@
                     x.innerHTML = "Delete";
 
                     data.forEach(function (item, index, a) {
-                        var row1 = table.insertRow(index + 1);
+                        var dataRow = table.insertRow(index + 1);
 
                         listProp.forEach(function (propItem, i, a) {
-                            var cell1 = row1.insertCell(i);
-                            cell1.innerHTML = data[index][propItem];
+                            var dataCell = dataRow.insertCell(i);
+                            dataCell.innerHTML = data[index][propItem];
                             items = i;
                         });
                         items++;
-                        x = row1.insertCell(items);
+                        x = dataRow.insertCell(items);
 
                         var editBtn = document.createElement('button');
                         editBtn.innerHTML = "Edit";
+                        editBtn.className = "class=\"btn .btn-success\"";
                         editBtn.onclick = function () {
-                            window.location.href = "Home/Edit?Id=2&Type=" + currentDataType;
+                            window.location.href = "Home/Edit?Id=" +item.Id + "&Type=" + currentDataType;
                         };
                         x.append(editBtn);
+
                         items++;
-                        x = row1.insertCell(items);
-                        x.innerHTML = "<button>Delete</button>";
+                        x = dataRow.insertCell(items);
+                        var deleteBtn = document.createElement('button');
+                        deleteBtn.innerHTML = "Delete";
+                        deleteBtn.className = "class=\"btn .btn-success\"";
+                        deleteBtn.onclick = function () {
+                            $.ajax({
+                                url: 'api/DataApi/DeleteData?type=' + currentDataType + '&id=' + data[index]['Id'],
+                                type: 'POST',
+                                contentType: 'application/json',
+                                data: JSON,
+                                success: function() {
+                                    table.deleteRow(index + 1);
+                                }
+                            });
+                        };
+                        x.append(deleteBtn);;
                     });
                 }
             }
         });
     }
+
+    FillDataTable();
 });

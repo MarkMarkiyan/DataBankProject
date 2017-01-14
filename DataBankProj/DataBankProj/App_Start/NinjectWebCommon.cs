@@ -1,5 +1,8 @@
 using DataBankProj.DAL;
 using DataBankProj.Extensibility;
+using DataBankProj.Extensibility.DAL;
+using DataBankProj.Extensibility.Service;
+using DataBankProj.Service;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(DataBankProj.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(DataBankProj.App_Start.NinjectWebCommon), "Stop")]

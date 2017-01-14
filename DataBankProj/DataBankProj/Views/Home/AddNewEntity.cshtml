@@ -5,10 +5,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<script src="~/Scripts/EditPageScript.js"></script>
+
 <h2>AddNewEntity</h2>
 
 <script src="~/Scripts/jquery-1.10.2.js"></script>
-<script src="~/Scripts/AddNewEntityScript.js"></script>
+<script src="~/Scripts/EditPageScript.js"></script>
 
 <table>
     @foreach (var property in Model.GetProperties())
@@ -19,7 +21,7 @@
             <td>
                 @if (isPropEdiable != null)
                 {
-                    <input class="input-sm">
+                    <input id=@property.Name class="input-sm">
                 }
                 else
                 {
