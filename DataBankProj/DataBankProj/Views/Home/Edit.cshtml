@@ -3,23 +3,26 @@
     ViewBag.Title = "Edit";
 }
 
-<script src="~/Scripts/jquery-1.10.2.js"></script>
-<script src="~/Scripts/EditPageScript.js"></script>
+<script>
+    var dataType = "@Model.GetType().Name.ToString()";
+</script>
 
-<h2>Edit</h2>
+<script src="~/Scripts/EditPageScript.js"></script>
+<h2>Edit @Model.GetType().Name</h2>
 
 <table>
     @foreach (var property in Model.GetType().GetProperties())
     {
-        var isPropEdiable = @Model.GetType().GetProperty(property.Name).GetSetMethod(false);//.IsPublic;
+        var isPropEdiable = @Model.GetType().GetProperty(property.Name).GetSetMethod(false); //.IsPublic;
         <tr>
-            <td class="body-content">@property.Name</td>
+            <td class="body-content" >@property.Name</td>
             <td>
-                @if (isPropEdiable!=null)
+                @if (isPropEdiable != null)
                 {
                     <input class="input-sm" id=@property.Name value=@Model.GetType().GetProperty(property.Name).GetValue(Model)>
                 }
-                else {
+                else
+                {
                     <label>@Model.GetType().GetProperty(property.Name).GetValue(Model)</label>
                 }
             </td>

@@ -1,10 +1,13 @@
 ﻿@model Type
 
 @{
-    ViewBag.Title = "AddNewEntity";
+    ViewBag.Title = "Add new entity";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<script>
+    var dataType = "@Model.GetType().Name.ToString()";
+</script>
 <script src="~/Scripts/EditPageScript.js"></script>
 
 <h2>AddNewEntity</h2>
@@ -18,7 +21,7 @@
         var isPropEdiable = @Model.GetProperty(property.Name).GetSetMethod(false);//.IsPublic;
         <tr>
             <td class="body-content">@property.Name</td>
-            <td>
+            <td>    
                 @if (isPropEdiable != null)
                 {
                     <input id=@property.Name class="input-sm">

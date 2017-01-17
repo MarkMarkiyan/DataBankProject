@@ -1,12 +1,11 @@
 ﻿using System.Data.Entity;
 using DataBankProj.DAL.Models;
-using System;
 
 namespace DataBankProj.DAL
 {
     public class DataContext : DbContext
     {
-        public DataContext() : base("DataContextttyyt")
+        public DataContext() : base("DataBaseContext")
         {
             
         }
@@ -20,52 +19,52 @@ namespace DataBankProj.DAL
             Users.Add(new User
             {
                 Id = 1,
-                Password = "qwe",
-                Login = "login"
+                Password = "Pass1",
+                Login = "Login"
             });
             Users.Add(new User
             {
                 Id = 2,
                 Password = "qasdwe",
-                Login = "logiasdn"
+                Login = "Markiyan"
             });
             Users.Add(new User
             {
                 Id = 3,
                 Password = "qweasd",
-                Login = "logisadn"
+                Login = "Worker"
             });
 
             Books.Add(new Book
             {
                 Id = 1,
-                Description = "qweqwe",
-                PublishDate = "asd",
-                Title = "title1",
+                Description = "Description qwe 123",
+                Author = "no author",
+                Title = "Title",
                 Size = 123
             });
             Books.Add(new Book
             {
                 Id = 1,
                 Description = "Descr",
-                PublishDate = "sdf",
+                Author = "Aut",
                 Title = "title132",
                 Size = 3
             });
             Books.Add(new Book
             {
                 Id = 1,
-                Description = "Kek",
-                PublishDate = DateTime.Now.ToString(),
+                Description = "Description Description 342",
+                Author = "Author 1",
                 Title = "titE",
                 Size = 1233
             });
             Books.Add(new Book
             {
                 Id = 1,
-                Description = "sdfsdfsdf",
-                PublishDate = DateTime.Now.ToString(),
-                Title = "lesadasd1",
+                Description = "DDDDDDD DDDDD DDDDD DDDDD",
+                Author = "Author 2",
+                Title = "BOOK",
                 Size = 43
             });
 

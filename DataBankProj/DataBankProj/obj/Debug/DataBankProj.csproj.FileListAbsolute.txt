@@ -473,3 +473,12 @@ C:\Users\HOME\Source\Repos\DataBankPrj\DataBankProj\DataBankProj\bin\Microsoft.O
 C:\Users\HOME\Source\Repos\DataBankPrj\DataBankProj\DataBankProj\obj\Debug\DataBankProj.csprojResolveAssemblyReference.cache
 C:\Users\HOME\Source\Repos\DataBankPrj\DataBankProj\DataBankProj\obj\Debug\DataBankProj.dll
 C:\Users\HOME\Source\Repos\DataBankPrj\DataBankProj\DataBankProj\obj\Debug\DataBankProj.pdb
+C:\Users\HOME\Source\Repos\DataBankPrj\DataBankProj\DataBankProj\bin\Moq.dll
+C:\Users\HOME\Source\Repos\DataBankPrj\DataBankProj\DataBankProj\bin\Ninject.MockingKernel.dll
+C:\Users\HOME\Source\Repos\DataBankPrj\DataBankProj\DataBankProj\bin\Ninject.MockingKernel.Moq.dll
+C:\Users\HOME\Source\Repos\DataBankPrj\DataBankProj\DataBankProj\bin\Ninject.Web.WebApi.dll
+C:\Users\HOME\Source\Repos\DataBankPrj\DataBankProj\DataBankProj\bin\Moq.pdb
+C:\Users\HOME\Source\Repos\DataBankPrj\DataBankProj\DataBankProj\bin\Moq.xml
+C:\Users\HOME\Source\Repos\DataBankPrj\DataBankProj\DataBankProj\bin\Ninject.MockingKernel.xml
+C:\Users\HOME\Source\Repos\DataBankPrj\DataBankProj\DataBankProj\bin\Ninject.MockingKernel.Moq.xml
+C:\Users\HOME\Source\Repos\DataBankPrj\DataBankProj\DataBankProj\bin\Ninject.Web.WebApi.xml

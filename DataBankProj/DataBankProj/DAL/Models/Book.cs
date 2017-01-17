@@ -12,6 +12,6 @@ namespace DataBankProj.DAL.Models
 
         public int Size { get; set; }
 
-        public string PublishDate { get; set; }
+        public string Author { get; set; }
     }
 }

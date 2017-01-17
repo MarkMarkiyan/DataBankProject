@@ -341,3 +341,7 @@ C:\Users\HOME\Source\Repos\DataBankPrj\DataBankProj\DataBankProj.Tests\bin\Debug
 C:\Users\HOME\Source\Repos\DataBankPrj\DataBankProj\DataBankProj.Tests\obj\Debug\DataBankProj.Tests.csprojResolveAssemblyReference.cache
 C:\Users\HOME\Source\Repos\DataBankPrj\DataBankProj\DataBankProj.Tests\obj\Debug\DataBankProj.Tests.dll
 C:\Users\HOME\Source\Repos\DataBankPrj\DataBankProj\DataBankProj.Tests\obj\Debug\DataBankProj.Tests.pdb
+C:\Users\HOME\Source\Repos\DataBankPrj\DataBankProj\DataBankProj.Tests\bin\Debug\Ninject.MockingKernel.dll
+C:\Users\HOME\Source\Repos\DataBankPrj\DataBankProj\DataBankProj.Tests\bin\Debug\Ninject.MockingKernel.Moq.dll
+C:\Users\HOME\Source\Repos\DataBankPrj\DataBankProj\DataBankProj.Tests\bin\Debug\Ninject.MockingKernel.xml
+C:\Users\HOME\Source\Repos\DataBankPrj\DataBankProj\DataBankProj.Tests\bin\Debug\Ninject.MockingKernel.Moq.xml

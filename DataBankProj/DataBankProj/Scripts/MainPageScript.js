@@ -25,7 +25,7 @@
             success: function (data) {
                 if (data != null) {
                     var table = document.getElementById("mainTable");
-                    table.innerHTML = "<table id=\"mainTable\" class=\"table table-striped\"><tr id=\"titleRow\"></tr></table";
+                    table.innerHTML = "<table id=\"mainTable\" class=\"table table-striped\"><tr id=\"titleRow\"></tr></table>";
 
                     var row = document.getElementById("titleRow");
                     var listProp = Object.getOwnPropertyNames(data[0]);

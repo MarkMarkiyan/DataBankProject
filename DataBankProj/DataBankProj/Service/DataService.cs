@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using DataBankProj.DAL.Models;
-using DataBankProj.Extensibility;
 using DataBankProj.Extensibility.DAL;
 using DataBankProj.Extensibility.Service;
 using Newtonsoft.Json;
@@ -10,10 +9,10 @@ namespace DataBankProj.Service
 {
     public class DataService : IDataService
     {
-        private IRepository<User> userRepository;
-        private IRepository<Book> bookRepository;
+        private readonly IRepository<User> userRepository;
+        private readonly IRepository<Book> bookRepository;
 
-        private Dictionary<string, object> repositoryOfType;
+        private readonly string exceptionMessage = "No suitable type find in data base";
 
         private List<string> dataTypesList = new List<string> {
             "User",
@@ -24,10 +23,10 @@ namespace DataBankProj.Service
         {
             this.userRepository = userRepository;
             this.bookRepository = bookRepository;
-            InitRepository();
         }
 
-        public List<string> GetListOfTypes() {
+        public List<string> GetListOfTypes()
+        {
             return dataTypesList;
         }
 
@@ -35,11 +34,11 @@ namespace DataBankProj.Service
         {
             if (typeof(Book).Name == typeName)
             {
-                  bookRepository.Insert(JsonConvert.DeserializeObject<Book>(obj.ToString()));
+                bookRepository.Insert(JsonConvert.DeserializeObject<Book>(obj.ToString()));
             }
             if (typeof(User).Name == typeName)
             {
-                 userRepository.Insert(JsonConvert.DeserializeObject<User>(obj.ToString()));
+                userRepository.Insert(JsonConvert.DeserializeObject<User>(obj.ToString()));
             }
         }
 
@@ -53,10 +52,11 @@ namespace DataBankProj.Service
             {
                 return userRepository.GetAll();
             }
-            throw new InvalidOperationException("No suitable type find in data base");
+            throw new InvalidOperationException(exceptionMessage);
         }
 
-        public object GetByIdAndType(int id, string typeName) {
+        public object GetByIdAndType(int id, string typeName)
+        {
             if (typeof(Book).Name == typeName)
             {
                 return bookRepository.GetById(id);
@@ -65,7 +65,7 @@ namespace DataBankProj.Service
             {
                 return userRepository.GetById(id);
             }
-            throw new InvalidOperationException("No suitable type find in data base");
+            throw new InvalidOperationException(exceptionMessage);
         }
 
         public Type GetTypeByName(string typeName)
@@ -78,7 +78,7 @@ namespace DataBankProj.Service
             {
                 return typeof(User);
             }
-            throw new InvalidOperationException("No suitable type find in data base");
+            throw new InvalidOperationException(exceptionMessage);
         }
 
         public void DeleteDataByTypeAndId(string typeName, int id)
@@ -92,16 +92,5 @@ namespace DataBankProj.Service
                 userRepository.Delete(id);
             }
         }
-
-        private void InitRepository()
-        {
-            if (repositoryOfType == null)
-            {
-                repositoryOfType = new Dictionary<string, object>();
-            }
-            repositoryOfType.Add("User", userRepository);
-            repositoryOfType.Add("Book", bookRepository);
-        }
-
     }
 }
